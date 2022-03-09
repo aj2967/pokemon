@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Generate from './pages/Generate';
 import Pokemon from './components/Pokemon';
 import logo from './logo.svg';
+import Pokedex from './pages/Pokedex';
 
 function App() {
   // Api Website: https://pokeapi.co/?ref=hackernoon.com
@@ -14,8 +15,9 @@ function App() {
       <div className="body-container">
         <Routes>
           <Route exact path='/' element={<Home />} />
+          <Route path='/pokedex' element={<Pokedex />} />
+          <Route path='pokedex/:id' element={<Pokemon />} />
           <Route path='/generate' element={<Generate />} />
-          <Route path='/pokemon/:id' element={<Pokemon />} />
         </Routes>
       </div>
     </div>

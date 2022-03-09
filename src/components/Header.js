@@ -5,8 +5,8 @@ const Header = () => {
   return (
     <div className="header">
       <div className="header-container">
-        <Link to="/">Pokedex</Link>
-        <img src={pokemonTitle} alt="Pokemon" />
+        <Link to="/pokedex">Pokedex</Link>
+        <Link to="/"><img src={pokemonTitle} alt="Pokemon" /></Link>
         <Link to="/generate">Generate</Link>
       </div>
     </div>
