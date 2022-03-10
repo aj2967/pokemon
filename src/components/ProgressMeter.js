@@ -3,8 +3,8 @@
 const ProgressMeter = (props) => {
     const {
         percent = 0,         // number: 0 - 1, inclusive. Fill %
-        width = 300,         // the width of our meter
-        height = 20,         // the height of our meter
+        width = 100,         // the width of our meter
+        height = 10,         // the height of our meter
         rounded = true,      // if true, use rounded corners
         color = "#FFCC00",   // the fill color
         animate = true,     // if true, animate

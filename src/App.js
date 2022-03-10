@@ -14,10 +14,10 @@ function App() {
       <Header />
       <div className="body-container">
         <Routes>
-          <Route exact path='/' element={<Home />} />
-          <Route path='/pokedex' element={<Pokedex />} />
-          <Route path='pokedex/:id' element={<Pokemon />} />
-          <Route path='/generate' element={<Generate />} />
+          <Route exact path='/pokemon' element={<Home />} />
+          <Route path='/pokemon/pokedex' element={<Pokedex />} />
+          <Route path='/pokemon/pokedex/:id' element={<Pokemon />} />
+          <Route path='/pokemon/generate' element={<Generate />} />
         </Routes>
       </div>
     </div>
@@ -26,12 +26,16 @@ function App() {
       create header
         - pokedex (clickable with pokemon.id)
         - view pokemon
-        - generate random pokemon
+        - discover
 
       pokedex
         - image front
         - name
-        - 
+      
+      discover pokemon
+        - search pokemon
+        - random pokemon
+
     */
   );
 }

@@ -5,9 +5,9 @@ const Header = () => {
   return (
     <div className="header">
       <div className="header-container">
-        <Link to="/pokedex">Pokedex</Link>
-        <Link to="/"><img src={pokemonTitle} alt="Pokemon" /></Link>
-        <Link to="/generate">Generate</Link>
+        <Link to="/pokemon/pokedex">Pokedex</Link>
+        <Link to="/pokemon"><img src={pokemonTitle} alt="Pokemon" /></Link>
+        <Link to="/pokemon/generate">Generate</Link>
       </div>
     </div>
   )
