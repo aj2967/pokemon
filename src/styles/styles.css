@@ -100,12 +100,13 @@ button:hover {
 .header-container {
   height: 10vh;
   padding: 1rem;
-  display: flex;
-  justify-content: space-between;
   align-items: center;
   margin: auto;
+  display: flex;
+  justify-content: space-between;
 }
 .header-container a {
+  width: 25%;
   color: #e2e2e2;
   font-size: 1.5rem;
   transition: all 0.2s ease;
@@ -114,8 +115,25 @@ button:hover {
   transform: scale(1.2);
   color: #FFCC00;
 }
+.header-container div {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+.header-container div a {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.header-container div a img {
+  width: 100px;
+}
 .header-container img {
   width: 20%;
+}
+.header-container .link-discover {
+  display: flex;
+  justify-content: flex-end;
 }
 
 /* --------------------- Body Layout -------------------- */

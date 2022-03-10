@@ -6,8 +6,10 @@ const Header = () => {
     <div className="header">
       <div className="header-container">
         <Link to="/pokemon/pokedex">Pokedex</Link>
-        <Link to="/pokemon"><img src={pokemonTitle} alt="Pokemon" /></Link>
-        <Link to="/pokemon/generate">Generate</Link>
+        <div>
+          <Link className='logo' to="/pokemon"><img src={pokemonTitle} alt="Pokemon" /></Link>
+        </div>
+        <Link className='link-discover' to="/pokemon/generate">Generate</Link>
       </div>
     </div>
   )

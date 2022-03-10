@@ -101,12 +101,13 @@ button {
 .header-container {
     height: 10vh;
     padding: 1rem;
-    display: flex;
-    justify-content: space-between;
     align-items: center;
     margin: auto;
+    display: flex;
+    justify-content: space-between;
 
     a {
+        width: 25%;
         color: $offWhite;
         font-size: 1.5rem;
         transition: all .2s ease;
@@ -117,8 +118,29 @@ button {
         }
     }
 
+    div {
+        width: 50%;
+        display: flex;
+        justify-content: center;
+
+        a {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+
+            img {
+                width: 100px;
+            }
+        }
+    }
+
     img {
         width: 20%;
+    }
+
+    .link-discover {
+        display: flex;
+        justify-content: flex-end
     }
 }
 
