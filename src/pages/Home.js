@@ -4,7 +4,9 @@ const Home = () => {
     <div className="home-container">
       <div className="background-image"></div>
       <div>
-        <div className="home-title"><h1>Home</h1></div>
+        <div className="home-content">
+          <h1>Dicover All Pokemon</h1>
+        </div>
       </div>
     </div>
   )

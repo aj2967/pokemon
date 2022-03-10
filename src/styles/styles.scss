@@ -213,20 +213,37 @@ h3 {
 }
 
 .background-image {
-        background: url('../assets/images/all-pokemons.png');
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        z-index: -1;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-        opacity: .3;
-        filter: blur(1px);
-    }
+    background: url('../assets/images/all-pokemons.png');
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    opacity: .3;
+    filter: blur(1px);
+}
 
+.home-content {
+    height: 80vh;
+    width: 100%;
+    // border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+        font-size: 64px;
+    }
+}
+
+
+
+/* -------------------- Pokedex Page -------------------- */
 .box {
     border: 2px solid transparent;
     border-radius: 1rem;
