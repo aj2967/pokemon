@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import Loader from "../components/Loader";
 import PokemonCard from "../components/PokemonCard";
+import { BiSearchAlt } from 'react-icons/bi';
 
 const Discover = () => {
       // Api Website: https://pokeapi.co/?ref=hackernoon.com
@@ -48,7 +49,6 @@ const Discover = () => {
 
     const handleSearch = (e, inputValue) => {
         e.preventDefault();
-        // setNewFetch(nameUrl);
 
         fetch(nameUrl)
         .then(data => {
@@ -69,17 +69,17 @@ const Discover = () => {
   return (
     <div className="discover-container">
         <div className="input-container">
-            <button className="btn" onClick={handleRandom}>Discover New</button>
+            <button className="btn" onClick={handleRandom}>Discover Pokemon</button>
             
             <h4 className="sidelines"><span className="dashes">Or</span></h4>
             
             <form onSubmit={(e) => handleSearch(e, inputValue)}>
                 <input 
-                    onChange={e => setInputValue(e.target.value)} 
+                    onChange={e => setInputValue(e.target.value.toLowerCase())} 
                     placeholder="Search by name"
                     ref={inputRef}
                 ></input>
-                <button type="submit">Search</button>
+                <button type="submit"><BiSearchAlt /></button>
             </form>
         </div>
 

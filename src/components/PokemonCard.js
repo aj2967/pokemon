@@ -40,7 +40,6 @@ const PokemonCard = (props) => {
             <div>
               <b>Attack <span>({pokemon.stats[1].base_stat})</span></b>
               <Meter percent={pokemon.stats[1].base_stat/100} />
-
             </div>
             <div>
               <b>Defence <span>({pokemon.stats[2].base_stat})</span></b>
@@ -60,16 +59,26 @@ const PokemonCard = (props) => {
             </div>
           </div>
         
-          <div className="detail detail-3">
+          {/* <div className="detail detail-3">
             <h3>Abilities</h3>
             <div>
               <b>{pokemon.abilities[0].ability.name}</b>
               <p>Info:</p>
             </div>
-            {/* <div>
+            <div>
               <b>{pokemon.abilities[1].ability.name}</b>
               <p>Info:</p>
-            </div> */}
+            </div>
+          </div> */}
+
+          <div className="detail detail-4">
+            <h3>Sprites</h3>
+            <div>
+              <img src={pokemon.sprites.front_default} alt={pokemon.name} />
+              <img src={pokemon.sprites.back_default} alt={pokemon.name} />
+              <img src={pokemon.sprites.front_shiny} alt={pokemon.name} />
+              <img src={pokemon.sprites.back_shiny} alt={pokemon.name} />
+            </div>
           </div>
         </div>
   )

@@ -212,6 +212,21 @@ h3 {
     margin: auto;
 }
 
+.background-image {
+        background: url('../assets/images/all-pokemons.png');
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: -1;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        opacity: .3;
+        filter: blur(1px);
+    }
+
 .box {
     border: 2px solid transparent;
     border-radius: 1rem;
@@ -325,6 +340,12 @@ h3 {
     }
 }
 
+.detail-4 {
+    div img {
+        width: 150px;
+    }
+}
+
 
 
 
@@ -335,12 +356,20 @@ h3 {
     .img-container {
         max-width: 400px;
     }
+
+    .pokedex-container {
+        max-width: 100%;
+    }
 }
 
 
 @media screen and (min-width: 800px) {
     .header-container {
         max-width: 1200px;
+
+        div a img {
+            width: 200px;
+        }
     }
     
     .body-container {
@@ -370,21 +399,30 @@ h3 {
         padding-bottom: 2rem;
         display: grid;
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+
+        .detail {
+            margin: .5rem 0;
+        }
 
         .detail-1 {
-            grid-column: 1 /1;
-            grid-row: 1/ span 2;
+            grid-column: 1/1;
+            grid-row: 1/span 3;
         }
 
         .detail-2 {
-            grid-column: 2 /2;
+            grid-column: 2/2;
             grid-row: 1/1;
         }
 
-        .detail-3 {
-            grid-column: 2 /2;
-            grid-row: 2/2;
+        // .detail-3 {
+        //     grid-column: 2/2;
+        //     grid-row: 2/2;
+        // }
+        
+        .detail-4 {
+            grid-column: 2/2;
+            grid-row: 2/span 2;
         }
     }
 

@@ -1,12 +1,13 @@
-import { useState, useEffect } from "react";
-import Loader from "../components/Loader";
-import { Link } from 'react-router-dom';
 
 const Home = () => {
   return (
-    <div>Home</div>
+    <div className="home-container">
+      <div className="background-image"></div>
+      <div>
+        <div className="home-title"><h1>Home</h1></div>
+      </div>
+    </div>
   )
-  
 }
 
 export default Home
