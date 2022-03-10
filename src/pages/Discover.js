@@ -84,6 +84,7 @@ const Discover = () => {
         </div>
 
         <div className="discover-result">
+            <h1>Pokemon #{pokemon.id}</h1>
             {!loaded ? (
             <Loader />
             ) : (

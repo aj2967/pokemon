@@ -216,7 +216,7 @@ h3 {
     background: url('../assets/images/all-pokemons.png');
     position: absolute;
     top: 0;
-    bottom: 0;
+    bottom: -10vh;
     left: 0;
     right: 0;
     z-index: -1;
@@ -228,7 +228,7 @@ h3 {
 }
 
 .home-content {
-    height: 80vh;
+    height: 70vh;
     width: 100%;
     // border: 1px solid black;
     display: flex;
@@ -387,6 +387,10 @@ h3 {
         div a img {
             width: 200px;
         }
+    }
+
+    .background-image {
+        bottom: 0;
     }
     
     .body-container {

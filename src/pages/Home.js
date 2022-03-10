@@ -5,7 +5,7 @@ const Home = () => {
       <div className="background-image"></div>
       <div>
         <div className="home-content">
-          <h1>Dicover All Pokemon</h1>
+          <h1>Dicover Pokemon</h1>
         </div>
       </div>
     </div>
