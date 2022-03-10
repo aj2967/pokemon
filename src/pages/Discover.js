@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Loader from "../components/Loader";
 import PokemonCard from "../components/PokemonCard";
 
@@ -8,6 +8,8 @@ const Discover = () => {
     const [loaded, setLoaded] = useState(false);
     const [pokemon, setPokemon] = useState({});
     const [inputValue, setInputValue] = useState('');
+
+    const inputRef = useRef();
     
     const apiData = {
         url: 'https://pokeapi.co/api/v2/',
@@ -18,12 +20,12 @@ const Discover = () => {
     const idUrl = `${url}${type}/${id}`;
     const nameUrl = `${url}${type}/${inputValue}`;
     
-    const [newFetch, setNewFetch] = useState(idUrl);
+    // const [newFetch, setNewFetch] = useState(idUrl);
 
     useEffect(() => {
     setLoaded(false);
     
-    fetch(newFetch)
+    fetch(idUrl)
         .then(data => {
             return data.json()
         })
@@ -33,22 +35,35 @@ const Discover = () => {
         })
         setTimeout(() => {
             setLoaded(true);
-        }, 1000);
-    }, [id, newFetch])
+        }, 300);
+    }, [id])
     
 
     const handleRandom = () => {
         const randomNum = Math.floor(Math.random() * 898);
         setId(randomNum);
-        setNewFetch(idUrl);
+        // setNewFetch(idUrl);
+        console.log(randomNum);
     }
 
     const handleSearch = (e, inputValue) => {
         e.preventDefault();
-        setNewFetch(nameUrl);
+        // setNewFetch(nameUrl);
+
+        fetch(nameUrl)
+        .then(data => {
+            return data.json()
+        })
+        .then(pokemon => {
+            setPokemon(pokemon)
+            console.log(pokemon);
+        })
+        setTimeout(() => {
+            setLoaded(true);
+        }, 700);
 
         console.log(inputValue);
-        setInputValue('');
+        inputRef.current.value = '';
     }
 
   return (
@@ -59,7 +74,11 @@ const Discover = () => {
             <h4 className="sidelines"><span className="dashes">Or</span></h4>
             
             <form onSubmit={(e) => handleSearch(e, inputValue)}>
-                <input onChange={e => setInputValue(e.target.value)} placeholder="Search by name"></input>
+                <input 
+                    onChange={e => setInputValue(e.target.value)} 
+                    placeholder="Search by name"
+                    ref={inputRef}
+                ></input>
                 <button type="submit">Search</button>
             </form>
         </div>

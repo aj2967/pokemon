@@ -17,10 +17,10 @@ const ProgressMeter = (props) => {
 
     return (
         <svg width={width} height={height} aria-label={label}>
-            <rect width={width} height={height} fill="#ccc" rx={r} ry={r}/>
+            <rect width={width} height={height} fill="#D5A100" rx={r} ry={r}/>
             <rect width={w} height={height} fill={color} rx={r} ry={r}   style={style}/>
         </svg>
-);
+    );
 }
 
 export default ProgressMeter

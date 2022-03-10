@@ -256,13 +256,13 @@ h3 {
 /* -------------------- Pokemon Page -------------------- */
 .card {
     width: 100%;
+    background: lightgrey;
     border: 1px solid lightgrey;
     border-radius: 1rem;
     box-shadow: 1px 1px 10px 2px rgba(0,0,0, .1);
     display: flex;
     flex-direction: column;
     justify-content: center;
-    // align-items: center;
     flex-wrap: wrap;
     margin-top: 1.5rem;
 }
@@ -357,6 +357,14 @@ h3 {
         align-items: center;
     }
 
+    .discover-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        gap: 1rem;
+    }
+
     .card {
         max-width: 800px;
         padding-bottom: 2rem;
@@ -379,5 +387,6 @@ h3 {
             grid-row: 2/2;
         }
     }
+
 
 }
