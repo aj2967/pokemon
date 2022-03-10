@@ -37,10 +37,10 @@ const Pokedex = () => {
 
   }, [])
 
-  const selectedPokemon = id => {
-    console.log(id);
-    setClickedPokemon(id);
-  }
+  // const selectedPokemon = id => {
+  //   console.log(id);
+  //   setClickedPokemon(id);
+  // }
 
   return (
     <div>
@@ -49,7 +49,7 @@ const Pokedex = () => {
            <Loader />
         ) : (
           pokedex.map(pokemon => (
-          <Link to={`${pokemon.id}`} className="box" onClick={() => {selectedPokemon(pokemon.id)}} key={pokemon.id}>
+          <Link to={`${pokemon.id}`} className="box" onClick={() => {setClickedPokemon(pokemon.id)}} key={pokemon.id}>
             <div className="number">
               <small>#{pokemon.id}</small>
             </div>
@@ -62,7 +62,7 @@ const Pokedex = () => {
         ))
         )}
       </div>
-      <button className="load-more" onClick={() => getPokemons()}>Load More</button>
+      <button className="btn load-more" onClick={() => getPokemons()}>Load More</button>
     </div>
   )
 }

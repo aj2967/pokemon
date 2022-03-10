@@ -9,7 +9,7 @@ const Header = () => {
         <div>
           <Link className='logo' to="/pokemon"><img src={pokemonTitle} alt="Pokemon" /></Link>
         </div>
-        <Link className='link-discover' to="/pokemon/generate">Generate</Link>
+        <Link className='link-discover' to="/pokemon/discover">Discover</Link>
       </div>
     </div>
   )
