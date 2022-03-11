@@ -3,7 +3,6 @@ import Header from './components/Header';
 import Home from './pages/Home';
 import Discover from './pages/Discover';
 import Pokemon from './components/Pokemon';
-import logo from './logo.svg';
 import Pokedex from './pages/Pokedex';
 
 function App() {

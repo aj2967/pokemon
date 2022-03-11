@@ -1,13 +1,12 @@
+import Hero from "../components/Hero"
+// import logo from '../logo.svg'
 
 const Home = () => {
   return (
     <div className="home-container">
       <div className="background-image"></div>
-      <div>
-        <div className="home-content">
-          <h1>Dicover Pokemon</h1>
-        </div>
-      </div>
+      {/* <img src={logo} alt="" /> */}
+      <Hero />
     </div>
   )
 }

@@ -76,7 +76,7 @@ const Discover = () => {
             <form onSubmit={(e) => handleSearch(e, inputValue)}>
                 <input 
                     onChange={e => setInputValue(e.target.value.toLowerCase())} 
-                    placeholder="Search by name"
+                    placeholder="Search Name/No."
                     ref={inputRef}
                 ></input>
                 <button type="submit"><BiSearchAlt /></button>
