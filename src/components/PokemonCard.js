@@ -3,9 +3,8 @@ import Meter from './ProgressMeter';
 const PokemonCard = (props) => {
     const pokemon = props.pokemon;
     console.log(pokemon);
-    // const {
     
-    // } = props;
+    const style = `card ${pokemon.type}`
 
   return (
     <div className="card">

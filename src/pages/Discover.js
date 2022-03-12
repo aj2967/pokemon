@@ -36,7 +36,7 @@ const Discover = () => {
         })
         setTimeout(() => {
             setLoaded(true);
-        }, 300);
+        }, 200);
     }, [id])
     
 
@@ -58,9 +58,9 @@ const Discover = () => {
             setPokemon(pokemon)
             console.log(pokemon);
         })
-        setTimeout(() => {
+        // setTimeout(() => {
             setLoaded(true);
-        }, 700);
+        // }, 700);
 
         console.log(inputValue);
         inputRef.current.value = '';
