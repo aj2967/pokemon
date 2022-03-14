@@ -1,39 +1,75 @@
+import { useState, useEffect } from 'react';
 import Meter from './ProgressMeter';
+import LoaderSmall from './LoaderSmall';
 
-const PokemonCard = (props) => {
-    const pokemon = props.pokemon;
-    console.log(pokemon);
-    
-    const style = `card ${pokemon.type}`
+const PokemonCard = ({ pokemon, bio }) => {
+  // const pokemon = props.pokemon;
+  console.log(pokemon);
+  // const [bio, setBio] = useState([])
+  // const [ability, setAbility] = useState([]);
+  // const [abilityDesc, setAbilityDesc] = useState('Info');
+
+  // const createAbilityObject = result => {
+  //   result.forEach( async ability => {
+  //     const res = await fetch(`"https://pokeapi.co/api/v2/ability/${}/"`);
+  //     const data = await res.json();
+
+  //     setAbility(currentList => [...currentList, data]);
+  //     console.log(ability);
+  //   })
+  // }
+
+  // const createAbilityObject = async result => {
+  //   const res = await fetch('https://pokeapi.co/api/v2/ability/66');
+  //   const data = await res.json();
+
+  //   setAbility(data);
+  //   console.log(ability);
+  //   setAbilityDesc(ability.effect_entries[0].effect)
+  //   setTimeout(() => {
+  //     setLoadedSmall(true)
+  //   }, 1500);
+  // }
+
+  // const createSpeciesObject = async () => {
+  //   const res = await fetch(pokemon.species.url);
+  //   const data = await res.json();
+
+  //   console.log(data);
+  //   setBio(data);
+  //   // handleFilterLang();
+  //   setTimeout(() => {
+  //     setLoadedSmall(true)
+  //   }, 1000);
+  // }
+
+  // const handleFilterLang = () => {
+  //   bio.flavor_text_entries.filter(entry => entry.language.name.includes('en') && entry.version.name.includes('red')).map((filteredEntry) => (
+  //     setFilterLang(filteredEntry.flavor_text)
+  //   ))
+  // }
+ 
+  useEffect(() => {
+    // handleFilterLang()
+    // setTimeout(() => {
+      // createAbilityObject();
+      // createSpeciesObject();
+
+    // }, 500);
+    // console.log(pokemon.abilities[0].ability.url);
+  }, [])
 
   return (
-    <div className="card">
-          <div className="detail-1">
+    <div className='card'>
+          <div className=" detail-bio">
             <div className="img-container">
-              <img src={pokemon.sprites.other.home.front_default} alt={pokemon.name} />
+              <img src={pokemon?.sprites?.other?.home.front_default} alt={pokemon.name} />
             </div>
 
-            <div className="bio">
-             <h1>{pokemon.name} <small>({pokemon.types[0].type.name})</small></h1>
-              <div>
-                <b>Base Experience:</b>
-                <p>{pokemon.base_experience}</p>
-              </div>
-              <div>
-                <b>Height:</b>
-                <p>{pokemon.height}</p>
-              </div>
-              <div>
-                <b>Weight:</b>
-                <p>{pokemon.weight}</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="detail detail-2">
+            <div className="detail detail-stats">
             <h3>Stats</h3>
             <div>
-              <b>Hp <span>({pokemon.stats[0].base_stat})</span></b>
+              <b>Hp <span>({pokemon?.stats[0]?.base_stat})</span></b>
               <Meter percent={pokemon.stats[0].base_stat/100} />
             </div>
             <div>
@@ -57,26 +93,96 @@ const PokemonCard = (props) => {
               <Meter percent={pokemon.stats[5].base_stat/100} />
             </div>
           </div>
+          </div>
+
+          <div className="detail detail-info">
+            <h1>{pokemon?.name} <small>({pokemon?.types[0]?.type?.name})</small></h1>
+            <div className='info-paragraph'>
+              {
+                bio.flavor_text_entries.filter(entry => entry.language.name.includes('en') && entry.version.name.includes('red')).map((filteredEntry) => (
+                <blockquote>{filteredEntry?.flavor_text}</blockquote>
+                ))
+              }           
+            </div>
+
+            <div className="info">
+              <div>
+                <b>Base Experience:</b>
+                <p>{pokemon.base_experience}</p>
+              </div>
+              <div>
+                <b>Base Happiness:</b>
+                <p>{bio?.base_happiness}</p>
+              </div>
+              <div>
+                <b>Capture Rate:</b>
+                <p>{bio?.capture_rate}</p>
+              </div>
+              <div>
+                <b>Height:</b>
+                <p>{pokemon.height}</p>
+              </div>
+              <div>
+                <b>Weight:</b>
+                <p>{pokemon.weight}</p>
+              </div>
+              <div>
+                <b>Color:</b>
+                <p>{bio?.color.name}</p>
+              </div>
+              <div>
+                <b>Egg Group:</b>
+                <p>{bio?.egg_groups[0].name}</p>
+              </div>
+              <div>
+                <b>Evolves From:</b>
+                <p>{bio?.evolves_from_species?.name || 'Unknown'}</p>
+              </div>
+              <div>
+                <b>Generation:</b>
+                <p>{bio?.generation.name}</p>
+              </div>
+              <div>
+                <b>Growth Rate:</b>
+                <p>{bio?.growth_rate.name}</p>
+              </div>
+              <div>
+                <b>Habitat:</b>
+                <p>{bio?.habitat?.name || 'Unknown'}</p>
+              </div>
+              <div>
+                <b>Shape:</b>
+                <p>{bio?.shape?.name || 'Unknown'}</p>
+              </div>
+            </div>
+          </div>
+          
         
-          {/* <div className="detail detail-3">
+          {/* <div className="detail detail-ability">
             <h3>Abilities</h3>
             <div>
-              <b>{pokemon.abilities[0].ability.name}</b>
-              <p>Info:</p>
-            </div>
-            <div>
-              <b>{pokemon.abilities[1].ability.name}</b>
-              <p>Info:</p>
+                <b>{!loadedSmall ? <LoaderSmall /> : ability.name}</b>
+              <p>
+                {
+                  !loadedSmall ? (
+                    <LoaderSmall />
+                    ) : (
+                    // setAbilityDesc(ability.effect_entries[0].effect)
+                    // abilityDesc
+                    // ability.effect_entries[1].effect
+                    abilityDesc
+                  )
+                }
+              </p>
             </div>
           </div> */}
 
-          <div className="detail detail-4">
-            <h3>Sprites</h3>
-            <div>
-              <img src={pokemon.sprites.front_default} alt={pokemon.name} />
-              <img src={pokemon.sprites.back_default} alt={pokemon.name} />
-              <img src={pokemon.sprites.front_shiny} alt={pokemon.name} />
-              <img src={pokemon.sprites.back_shiny} alt={pokemon.name} />
+          <div className="detail detail-sprites">
+            <h3>Shiny Version</h3>
+            <div className='sprites'>
+              <img src={pokemon?.sprites?.other.home.front_shiny} alt={pokemon.name} />
+              <img src={pokemon?.sprites?.front_shiny} alt={pokemon.name} />
+              <img src={pokemon?.sprites?.back_shiny || ''} alt={pokemon.name}/>
             </div>
           </div>
         </div>

@@ -8,6 +8,7 @@ const Pokemon = () => {
 
   const [loaded, setLoaded] = useState(false);
   const [pokemon, setPokemon] = useState({})
+  const [bio, setBio] = useState()
 
   const apiData = {
       url: 'https://pokeapi.co/api/v2/',
@@ -26,12 +27,20 @@ const Pokemon = () => {
         })
         .then(pokemon => {
           setPokemon(pokemon)
-          console.log(pokemon);
+            handleSpecies(id);
         })
     setTimeout(() => {
       setLoaded(true);
-    }, 500);
+    }, 1500);
   }, [id])
+
+  const handleSpecies = async (id) => {
+        const res = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}`);
+        const data = await res.json();
+
+        console.log(data);
+        setBio(data);
+  }
   
   return (
     <div className="pokemon-container">
@@ -40,7 +49,7 @@ const Pokemon = () => {
       {!loaded ? (
         <Loader />
       ) : (
-        <PokemonCard pokemon={pokemon}/>
+        <PokemonCard pokemon={pokemon} bio={bio} />
       )}
     </div>
   )

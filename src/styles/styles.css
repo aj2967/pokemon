@@ -41,6 +41,9 @@ h3 {
 }
 
 /* -------------------- Discover Page ------------------- */
+.input-container {
+  margin-bottom: 1rem;
+}
 .input-container button {
   width: 100%;
   border: 3px solid transparent;
@@ -117,7 +120,7 @@ h3 {
 }
 
 .loader-svg {
-  font-size: 24rem;
+  font-size: 12rem;
   -webkit-animation-name: pulse;
           animation-name: pulse;
   -webkit-animation-fill-mode: forwards;
@@ -126,6 +129,15 @@ h3 {
           animation-iteration-count: infinite;
   -webkit-animation-timing-function: ease;
           animation-timing-function: ease;
+}
+
+.loader-small {
+  position: relative;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
 }
 
 /* ----------------------- Header ----------------------- */
@@ -219,7 +231,7 @@ h3 {
 .box {
   border: 2px solid transparent;
   border-radius: 1rem;
-  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 2px 2px 20px 2px rgba(0, 0, 0, 0.3);
   color: #e2e2e2;
   width: 200px;
   height: 300px;
@@ -277,16 +289,13 @@ h3 {
   width: 100%;
 }
 
-.detail-1 {
+.detail-bio {
   width: 100%;
 }
-.detail-1 .bio h1 {
-  margin: 1rem 0.5rem;
-}
-.detail-1 .bio h1 small {
+.detail-bio .bio h1 small {
   color: grey;
 }
-.detail-1 .bio div {
+.detail-bio .bio div {
   display: flex;
   justify-content: space-between;
   padding: 0.25rem 1rem;
@@ -300,18 +309,50 @@ h3 {
   margin-bottom: 0.5rem;
 }
 
-.detail-2 div {
+.detail-stats {
+  margin: 2rem 0 0 0;
+}
+.detail-stats div {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 0.2rem 0.5rem;
 }
 
-.detail-3 div {
+.detail-info {
+  width: 100%;
+}
+.detail-info .info-paragraph {
+  background-color: #c2c2c2;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+.detail-info .info h1 {
+  margin: 1rem 0.5rem;
+}
+.detail-info .info h1 small {
+  color: grey;
+}
+.detail-info .info div {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.25rem 1rem;
+}
+
+.detail-ability div {
   margin-bottom: 2rem;
 }
 
-.detail-4 div img {
+.detail-sprites div img {
   width: 150px;
+}
+.detail-sprites .sprites {
+  display: flex;
+  justify-content: center;
+  border: 1px solid #c2c2c2;
+  border-radius: 0.5rem;
+  flex-wrap: wrap;
 }
 
 @media screen and (min-width: 430px) {
@@ -357,26 +398,66 @@ h3 {
     gap: 1rem;
   }
 
+  .input-container {
+    width: 20%;
+  }
+
   .card {
     max-width: 800px;
     padding-bottom: 2rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
   }
   .card .detail {
     margin: 0.5rem 0;
   }
-  .card .detail-1 {
+  .card .detail-bio {
     grid-column: 1/1;
     grid-row: 1/span 3;
   }
-  .card .detail-2 {
+  .card .detail-info {
     grid-column: 2/2;
-    grid-row: 1/1;
+    grid-row: 1/span 3;
   }
-  .card .detail-4 {
-    grid-column: 2/2;
-    grid-row: 2/span 2;
+  .card .detail-sprites {
+    grid-column: 1/4;
+    grid-row: 4/4;
   }
+}
+.filter-cards h2 {
+  font-size: 0.8rem;
+}
+.filter-cards img {
+  width: 100%;
+  height: 30vh;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+}
+
+.filter-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.filter-container button {
+  margin: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid #0A285F;
+  border-radius: 1rem;
+  background: #e2e2e2;
+  color: #0A285F;
+  font-weight: bold;
+  cursor: pointer;
+}
+.filter-container button:active {
+  background: #0A285F;
+  color: white;
+}
+
+.active {
+  background: #0A285F;
+  color: white;
 }/*# sourceMappingURL=styles.css.map */

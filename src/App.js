@@ -22,19 +22,8 @@ function App() {
     </div>
 
     /*
-      create header
-        - pokedex (clickable with pokemon.id)
-        - view pokemon
-        - discover
-
       pokedex
-        - image front
-        - name
-      
-      discover pokemon
-        - search pokemon
-        - random pokemon
-
+        - 
     */
   );
 }

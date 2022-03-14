@@ -8,6 +8,7 @@ const Discover = () => {
     const [id, setId] = useState(25);
     const [loaded, setLoaded] = useState(false);
     const [pokemon, setPokemon] = useState({});
+    const [bio, setBio] = useState([])
     const [inputValue, setInputValue] = useState('');
 
     const inputRef = useRef();
@@ -32,18 +33,24 @@ const Discover = () => {
         })
         .then(pokemon => {
             setPokemon(pokemon)
-            console.log(pokemon);
+            handleSpecies(id);
         })
         setTimeout(() => {
             setLoaded(true);
         }, 200);
     }, [id])
     
+    const handleSpecies = async id => {
+        const res = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}`);
+        const data = await res.json();
+
+        console.log(data);
+        setBio(data);
+    }
 
     const handleRandom = () => {
         const randomNum = Math.floor(Math.random() * 898);
         setId(randomNum);
-        // setNewFetch(idUrl);
         console.log(randomNum);
     }
 
@@ -56,11 +63,13 @@ const Discover = () => {
         })
         .then(pokemon => {
             setPokemon(pokemon)
+            const name = pokemon.name;
             console.log(pokemon);
+            handleSpecies(name);
+
         })
-        // setTimeout(() => {
-            setLoaded(true);
-        // }, 700);
+        
+        setLoaded(true);
 
         console.log(inputValue);
         inputRef.current.value = '';
@@ -76,7 +85,7 @@ const Discover = () => {
             <form onSubmit={(e) => handleSearch(e, inputValue)}>
                 <input 
                     onChange={e => setInputValue(e.target.value.toLowerCase())} 
-                    placeholder="Search Name/No."
+                    placeholder="Search By Name/No."
                     ref={inputRef}
                 ></input>
                 <button type="submit"><BiSearchAlt /></button>
@@ -88,7 +97,7 @@ const Discover = () => {
             {!loaded ? (
             <Loader />
             ) : (
-                <PokemonCard pokemon={pokemon}/>
+                <PokemonCard pokemon={pokemon} bio={bio} />
             )}
         </div>
       </div>
