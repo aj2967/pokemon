@@ -2,7 +2,7 @@
   "name": "react-api-pokemon",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://aj2967.github.io/",
+  "homepage": "https://aj2967.github.io/pokemon",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.3",
