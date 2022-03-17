@@ -135,6 +135,7 @@ h3 {
     justify-content: center;
     align-items: center;
     margin: 0 auto;
+    z-index: 1000;
 }
 
 .loader-svg {
@@ -257,6 +258,116 @@ h3 {
 
 
 /* -------------------- Pokedex Page -------------------- */
+.filter-cards {
+    h2 {
+        font-size: .8rem;
+    }
+    img {
+        width: 100%;
+        height: 30vh;
+        object-fit: cover;
+        border-radius: 1rem;
+        margin-bottom: 1rem;
+    }
+}
+
+.filter-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+ 
+    button {
+        margin: .5rem;
+        // min-width: 5rem;
+        padding: .5rem 1rem;
+        border: 1px solid $blueDark;
+        border-radius: 1rem;
+        background: $offWhite;
+        color: $blueDark;
+        font-weight: bold;
+        cursor: pointer;
+
+        &:active {
+            background: $blueDark;
+            color: white;
+        }
+    }
+}
+
+.dropdown {
+    width: 60%;
+    min-width: 100px;
+    max-width: 250px;
+    // margin: 100px auto;
+    position: relative;
+    user-select: none;
+    z-index: 200;
+    
+    .dropdown-btn {
+        padding: 15px 20px;
+        background: $blueDark;
+        border: 1px solid $offWhite;
+        border-radius: 2rem;
+        box-shadow: 3px 3px 10px 6px rgba(0,0,0, .06);
+        font-weight: bold;
+        color: $offWhite;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+    }
+
+    .dropdown-content {
+        position: absolute;
+        top: 110%;
+        left: 0;
+        padding: 10px;
+        background: $darkGrey;
+        border-radius: .5rem;
+        box-shadow: 3px 3px 10px 6px rgba(0,0,0, .06);
+        font-weight: 500;
+        color: $blueDark;
+        width: 100%;
+        max-height: 50vh;
+        overflow-y: scroll;
+        /* width */
+        &::-webkit-scrollbar {
+            width: 10px;
+            position: absolute;
+            transform: translateX(-50px);
+        }
+        /* Track */
+        &::-webkit-scrollbar-track {
+            background: $darkGrey;
+            border-radius: .5rem;
+        }
+        /* Handle */
+        &::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: .5rem;
+            transition: all .2s ease;
+        }
+        /* Handle on hover */
+        &::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        .dropdown-item {
+            padding: 10px;
+            cursor: pointer;
+            transition: all .3s ease;
+            color: $blueDark;
+            border: 1px solid transparent;
+            border-radius: 2rem;
+            margin: .2rem 0;
+            
+            &:hover {
+                border: 1px solid $blueDark;
+            }
+        }
+    }
+}
+
 .box {
     border: 2px solid transparent;
     border-radius: 1rem;
@@ -288,6 +399,12 @@ h3 {
         height: 70%;
         padding: .5rem;
     }
+}
+
+.load-more-message {
+    margin: 2rem 0;
+    display: flex;
+    justify-content: center;
 }
 
 .load-more {
@@ -414,6 +531,21 @@ h3 {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @media screen and (min-width: 430px) {
     .img-container {
         max-width: 400px;
@@ -469,7 +601,7 @@ h3 {
         padding-bottom: 2rem;
         display: grid;
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
 
         .detail {
             margin: .5rem 0;
@@ -477,75 +609,24 @@ h3 {
 
         .detail-bio {
             grid-column: 1/1;
-            grid-row: 1/span 3;
+            grid-row: 1/span 2;
         }
 
         .detail-info {
             grid-column: 2/2;
-            grid-row: 1/span 3;
+            grid-row: 1/span 2;
         }
 
-    //     .detail-stats {
-    //         grid-column: 2/2;
-    //         grid-row: 1/1;
-    //     }
-
-    //     // .detail-ability {
-    //     //     grid-column: 2/2;
-    //     //     grid-row: 2/2;
-    //     // }
-        
         .detail-sprites {
-            grid-column: 1/4;
-            grid-row: 4/4;
+            grid-column: 2/2;
+            grid-row: 3/3;
         }
+        
+        .detail-ability {
+            grid-column: 1/1;
+            grid-row: 3/3;
+        }    
     }
 
 
-}
-
-
-
-
-
-
-.filter-cards {
-    h2 {
-        font-size: .8rem;
-    }
-    img {
-        width: 100%;
-        height: 30vh;
-        object-fit: cover;
-        border-radius: 1rem;
-        margin-bottom: 1rem;
-    }
-}
-
-.filter-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
- 
-    button {
-        margin: .5rem;
-        // min-width: 5rem;
-        padding: .5rem 1rem;
-        border: 1px solid $blueDark;
-        border-radius: 1rem;
-        background: $offWhite;
-        color: $blueDark;
-        font-weight: bold;
-        cursor: pointer;
-
-        &:active {
-            background: $blueDark;
-            color: white;
-        }
-    }
-}
-
-.active {
-    background: $blueDark;
-    color: white;
 }

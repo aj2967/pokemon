@@ -1,70 +1,30 @@
 import { useState, useEffect } from 'react';
+import styled from 'styled-components';
 import Meter from './ProgressMeter';
 import LoaderSmall from './LoaderSmall';
 
-const PokemonCard = ({ pokemon, bio }) => {
-  // const pokemon = props.pokemon;
+const PokemonCard = ({ pokemon, bio, ability }) => {
   console.log(pokemon);
-  // const [bio, setBio] = useState([])
-  // const [ability, setAbility] = useState([]);
-  // const [abilityDesc, setAbilityDesc] = useState('Info');
-
-  // const createAbilityObject = result => {
-  //   result.forEach( async ability => {
-  //     const res = await fetch(`"https://pokeapi.co/api/v2/ability/${}/"`);
-  //     const data = await res.json();
-
-  //     setAbility(currentList => [...currentList, data]);
-  //     console.log(ability);
-  //   })
-  // }
-
-  // const createAbilityObject = async result => {
-  //   const res = await fetch('https://pokeapi.co/api/v2/ability/66');
-  //   const data = await res.json();
-
-  //   setAbility(data);
-  //   console.log(ability);
-  //   setAbilityDesc(ability.effect_entries[0].effect)
-  //   setTimeout(() => {
-  //     setLoadedSmall(true)
-  //   }, 1500);
-  // }
-
-  // const createSpeciesObject = async () => {
-  //   const res = await fetch(pokemon.species.url);
-  //   const data = await res.json();
-
-  //   console.log(data);
-  //   setBio(data);
-  //   // handleFilterLang();
-  //   setTimeout(() => {
-  //     setLoadedSmall(true)
-  //   }, 1000);
-  // }
-
-  // const handleFilterLang = () => {
-  //   bio.flavor_text_entries.filter(entry => entry.language.name.includes('en') && entry.version.name.includes('red')).map((filteredEntry) => (
-  //     setFilterLang(filteredEntry.flavor_text)
-  //   ))
-  // }
+  console.log(ability);
+  
+  const [isLoaded, setIsLoaded] = useState(false)
  
   useEffect(() => {
-    // handleFilterLang()
-    // setTimeout(() => {
-      // createAbilityObject();
-      // createSpeciesObject();
-
-    // }, 500);
-    // console.log(pokemon.abilities[0].ability.url);
+    setTimeout(() => {
+      setIsLoaded(true)
+    }, 500);
   }, [])
+
+  const ImgContainer = styled.div`
+    background: linear-gradient(45deg, #e2e2e2, ${bio?.color.name});
+  `
 
   return (
     <div className='card'>
           <div className=" detail-bio">
-            <div className="img-container">
+            <ImgContainer className="img-container">
               <img src={pokemon?.sprites?.other?.home.front_default} alt={pokemon.name} />
-            </div>
+            </ImgContainer>
 
             <div className="detail detail-stats">
             <h3>Stats</h3>
@@ -156,33 +116,30 @@ const PokemonCard = ({ pokemon, bio }) => {
               </div>
             </div>
           </div>
-          
-        
-          {/* <div className="detail detail-ability">
-            <h3>Abilities</h3>
-            <div>
-                <b>{!loadedSmall ? <LoaderSmall /> : ability.name}</b>
+
+          <div className="detail detail-ability">
+            <h3>Ability</h3>
+            <div className='ability'>
+              <b>{ability?.name}</b>
               <p>
-                {
-                  !loadedSmall ? (
-                    <LoaderSmall />
+                  {
+                    !isLoaded ? (
+                      <LoaderSmall />
                     ) : (
-                    // setAbilityDesc(ability.effect_entries[0].effect)
-                    // abilityDesc
-                    // ability.effect_entries[1].effect
-                    abilityDesc
-                  )
-                }
+                    ability?.effect_entries?.filter(entry => entry.language.name.includes('en')).map((filteredEntry) => (
+                     filteredEntry?.effect
+                      ))
+                    )
+                  }
               </p>
             </div>
-          </div> */}
+          </div>
 
           <div className="detail detail-sprites">
             <h3>Shiny Version</h3>
             <div className='sprites'>
               <img src={pokemon?.sprites?.other.home.front_shiny} alt={pokemon.name} />
               <img src={pokemon?.sprites?.front_shiny} alt={pokemon.name} />
-              <img src={pokemon?.sprites?.back_shiny || ''} alt={pokemon.name}/>
             </div>
           </div>
         </div>

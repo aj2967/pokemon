@@ -9,6 +9,7 @@ const Discover = () => {
     const [loaded, setLoaded] = useState(false);
     const [pokemon, setPokemon] = useState({});
     const [bio, setBio] = useState([])
+    const [ability, setAbility] = useState();
     const [inputValue, setInputValue] = useState('');
 
     const inputRef = useRef();
@@ -34,6 +35,7 @@ const Discover = () => {
         .then(pokemon => {
             setPokemon(pokemon)
             handleSpecies(id);
+            handleAbility();
         })
         setTimeout(() => {
             setLoaded(true);
@@ -47,6 +49,20 @@ const Discover = () => {
         console.log(data);
         setBio(data);
     }
+
+    const handleAbility = async () => {
+    const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
+    const data = await res.json();
+
+    const createAbilityObject = async result => {
+      const res = await fetch(result)
+      const data = await res.json();
+
+      console.log(ability)
+      setAbility(data)
+    }
+    createAbilityObject(data.abilities[0].ability.url)
+  }
 
     const handleRandom = () => {
         const randomNum = Math.floor(Math.random() * 898);
@@ -64,8 +80,10 @@ const Discover = () => {
         .then(pokemon => {
             setPokemon(pokemon)
             const name = pokemon.name;
+            setId(pokemon.id)
             console.log(pokemon);
-            handleSpecies(name);
+            handleSpecies(id);
+            handleAbility();
 
         })
         
@@ -97,7 +115,7 @@ const Discover = () => {
             {!loaded ? (
             <Loader />
             ) : (
-                <PokemonCard pokemon={pokemon} bio={bio} />
+                <PokemonCard pokemon={pokemon} bio={bio} ability={ability} />
             )}
         </div>
       </div>

@@ -8,7 +8,8 @@ const Pokemon = () => {
 
   const [loaded, setLoaded] = useState(false);
   const [pokemon, setPokemon] = useState({})
-  const [bio, setBio] = useState()
+  const [bio, setBio] = useState();
+  const [ability, setAbility] = useState();
 
   const apiData = {
       url: 'https://pokeapi.co/api/v2/',
@@ -27,19 +28,35 @@ const Pokemon = () => {
         })
         .then(pokemon => {
           setPokemon(pokemon)
-            handleSpecies(id);
+          handleSpecies(id);
+          handleAbility();
         })
+
     setTimeout(() => {
       setLoaded(true);
     }, 1500);
   }, [id])
 
-  const handleSpecies = async (id) => {
+  const handleSpecies = async id => {
         const res = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}`);
         const data = await res.json();
 
         console.log(data);
         setBio(data);
+  }
+
+  const handleAbility = async () => {
+    const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
+    const data = await res.json();
+
+    const createAbilityObject = async result => {
+      const res = await fetch(result)
+      const data = await res.json();
+
+      console.log(ability)
+      setAbility(data)
+    }
+    createAbilityObject(data.abilities[0].ability.url)
   }
   
   return (
@@ -49,7 +66,7 @@ const Pokemon = () => {
       {!loaded ? (
         <Loader />
       ) : (
-        <PokemonCard pokemon={pokemon} bio={bio} />
+        <PokemonCard pokemon={pokemon} bio={bio} ability={ability} />
       )}
     </div>
   )

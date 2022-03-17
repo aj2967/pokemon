@@ -164,7 +164,7 @@ const Hero = () => {
                     initial='hidden'
                     animate='visible'
                     transition={{ duration: 1 }}
-                >Browse our collection of pokemon</motion.p>
+                >Browse a collection of pokemon</motion.p>
                 <Link to="/pokemon/pokedex">
                     <Button
                         className='btn'
@@ -206,7 +206,7 @@ const Hero = () => {
                 />
                 
                 <Image src={squirtle} alt='squirtle'
-                    whileTap={{scale: .7}} 
+                    whileTap={{scale: .9}} 
                     drag={true}
                     dragConstraints={{left: 0, right:0, top:50, bottom:0}}
                     initial={{opacity:0, x: 100, y:60}}
@@ -214,7 +214,7 @@ const Hero = () => {
                 />
                 
                 <Image src={ivysaur} alt='ivysaur'
-                    whileTap={{scale: .8}} 
+                    whileTap={{scale: .9}} 
                     drag={true}
                     dragConstraints={{left: 0, right:0, top:0, bottom:0}}
                     initial={{opacity:0, x: -80, y:180}}
@@ -222,7 +222,7 @@ const Hero = () => {
                 />
                 
                 <Image src={meowth} alt='meowth'
-                    whileTap={{scale: .8}} 
+                    whileTap={{scale: .9}} 
                     drag={true}
                     dragConstraints={{left: 0, right:0, top:0, bottom:0}}
                     initial={{opacity:0, x: -100, y:10}}

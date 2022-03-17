@@ -117,6 +117,7 @@ h3 {
   justify-content: center;
   align-items: center;
   margin: 0 auto;
+  z-index: 1000;
 }
 
 .loader-svg {
@@ -228,6 +229,111 @@ h3 {
 }
 
 /* -------------------- Pokedex Page -------------------- */
+.filter-cards h2 {
+  font-size: 0.8rem;
+}
+.filter-cards img {
+  width: 100%;
+  height: 30vh;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+}
+
+.filter-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.filter-container button {
+  margin: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid #0A285F;
+  border-radius: 1rem;
+  background: #e2e2e2;
+  color: #0A285F;
+  font-weight: bold;
+  cursor: pointer;
+}
+.filter-container button:active {
+  background: #0A285F;
+  color: white;
+}
+
+.dropdown {
+  width: 60%;
+  min-width: 100px;
+  max-width: 250px;
+  position: relative;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  z-index: 200;
+}
+.dropdown .dropdown-btn {
+  padding: 15px 20px;
+  background: #0A285F;
+  border: 1px solid #e2e2e2;
+  border-radius: 2rem;
+  box-shadow: 3px 3px 10px 6px rgba(0, 0, 0, 0.06);
+  font-weight: bold;
+  color: #e2e2e2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+.dropdown .dropdown-content {
+  position: absolute;
+  top: 110%;
+  left: 0;
+  padding: 10px;
+  background: #c2c2c2;
+  border-radius: 0.5rem;
+  box-shadow: 3px 3px 10px 6px rgba(0, 0, 0, 0.06);
+  font-weight: 500;
+  color: #0A285F;
+  width: 100%;
+  max-height: 50vh;
+  overflow-y: scroll;
+  /* width */
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
+.dropdown .dropdown-content::-webkit-scrollbar {
+  width: 10px;
+  position: absolute;
+  transform: translateX(-50px);
+}
+.dropdown .dropdown-content::-webkit-scrollbar-track {
+  background: #c2c2c2;
+  border-radius: 0.5rem;
+}
+.dropdown .dropdown-content::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 0.5rem;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+.dropdown .dropdown-content::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.dropdown .dropdown-content .dropdown-item {
+  padding: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #0A285F;
+  border: 1px solid transparent;
+  border-radius: 2rem;
+  margin: 0.2rem 0;
+}
+.dropdown .dropdown-content .dropdown-item:hover {
+  border: 1px solid #0A285F;
+}
+
 .box {
   border: 2px solid transparent;
   border-radius: 1rem;
@@ -256,6 +362,12 @@ h3 {
   width: 100%;
   height: 70%;
   padding: 0.5rem;
+}
+
+.load-more-message {
+  margin: 2rem 0;
+  display: flex;
+  justify-content: center;
 }
 
 .load-more {
@@ -407,57 +519,25 @@ h3 {
     padding-bottom: 2rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
   }
   .card .detail {
     margin: 0.5rem 0;
   }
   .card .detail-bio {
     grid-column: 1/1;
-    grid-row: 1/span 3;
+    grid-row: 1/span 2;
   }
   .card .detail-info {
     grid-column: 2/2;
-    grid-row: 1/span 3;
+    grid-row: 1/span 2;
   }
   .card .detail-sprites {
-    grid-column: 1/4;
-    grid-row: 4/4;
+    grid-column: 2/2;
+    grid-row: 3/3;
   }
-}
-.filter-cards h2 {
-  font-size: 0.8rem;
-}
-.filter-cards img {
-  width: 100%;
-  height: 30vh;
-  -o-object-fit: cover;
-     object-fit: cover;
-  border-radius: 1rem;
-  margin-bottom: 1rem;
-}
-
-.filter-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-.filter-container button {
-  margin: 0.5rem;
-  padding: 0.5rem 1rem;
-  border: 1px solid #0A285F;
-  border-radius: 1rem;
-  background: #e2e2e2;
-  color: #0A285F;
-  font-weight: bold;
-  cursor: pointer;
-}
-.filter-container button:active {
-  background: #0A285F;
-  color: white;
-}
-
-.active {
-  background: #0A285F;
-  color: white;
+  .card .detail-ability {
+    grid-column: 1/1;
+    grid-row: 3/3;
+  }
 }/*# sourceMappingURL=styles.css.map */
