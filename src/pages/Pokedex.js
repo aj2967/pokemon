@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
-import Loader from "../components/Loader";
 import { Link } from 'react-router-dom';
-import { motion } from "framer-motion";
+import Loader from "../components/Loader";
 import Dropdown from "../components/Dropdown";
 
 const Pokedex = () => {
@@ -10,18 +9,18 @@ const Pokedex = () => {
   const [clickedPokemon, setClickedPokemon ] = useState();
 
   const [filtered, setFiltered] = useState([]);
-  const [activeGenre, setActiveGenre] = useState(0);
+  const [displayPerLoad, setDisplayPerLoad] = useState(50);
   const [selected, setSelected] = useState('All');
 
   const [loadMoreMessage, setLoadMoreMessage] = useState('');
-  const [loadMore, setLoadMore] = useState('https://pokeapi.co/api/v2/pokemon?limit=10');
+  const [loadMore, setLoadMore] = useState(`https://pokeapi.co/api/v2/pokemon?limit=${displayPerLoad}`);
 
   const getPokemons = async () => {
     const res = await fetch(loadMore);
     const data = await res.json();
 
     setLoadMore(data.next)
-    console.log(data);
+    // console.log(data);
 
     const createPokeObject = result => {
       result.forEach( async pokemon => {
@@ -30,11 +29,11 @@ const Pokedex = () => {
 
         setPokedex(currentList => [...currentList, data]);
         setFiltered(currentList => [...currentList, data]);
-        console.log(filtered);
+        // console.log(filtered);
       })
     }
     createPokeObject(data.results)
-    await console.log(pokedex);
+    // console.log(pokedex);
   }
 
   useEffect(() => {
@@ -45,7 +44,7 @@ const Pokedex = () => {
       setLoaded(true);
     }, 1000);
 
-  }, [])
+  }, [displayPerLoad])
   
   useEffect(() => { 
       if (selected === 'All') {
@@ -57,7 +56,6 @@ const Pokedex = () => {
       setFiltered(filtered);
       
       if (filtered.length === 0) {
-        console.log('Please click the button below to load more');
         setLoadMoreMessage('Please click the button below to load more')
       } else {
         setLoadMoreMessage('');
@@ -65,14 +63,25 @@ const Pokedex = () => {
       console.log(filtered.length);
   }, [selected, pokedex])
 
+  const selectTypeFilter = ['All', 'Normal', 'Fighting', 'Flying', 'Poison', 'Ground', 'Rock', 'Bug', 'Ghost', 'Steel', 'Fire', 'Water', 'Grass', 'Electric', 'Psychic', 'Ice', 'Dragon', 'Dark', 'Fairy', 'Shadow'];
+
+  const selectNumberFilter = [1, 10]
+
   return (
     <div>
       <div className="filter-container">
-        <Dropdown selected={selected} setSelected={setSelected} />
         
-      </div>
-
-      <div className="custom-dropdown-container">
+        
+        <Dropdown 
+          value={selected} 
+          setValue={setSelected} 
+          options={selectTypeFilter} 
+        />
+        {/* <Dropdown 
+          value={displayPerLoad} 
+          setValue={setDisplayPerLoad} 
+          options={selectNumberFilter} 
+        /> */}
       </div>
 
       <div layout className="pokedex-container">

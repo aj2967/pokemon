@@ -1,5 +1,6 @@
-import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import styled from 'styled-components';
 import charizard from '../assets/images/charizard-g5.png';
 import raichu from '../assets/images/raichu-g5.png';
 import squirtle from '../assets/images/squirtle-g5.png';
@@ -7,7 +8,6 @@ import blastoise from '../assets/images/blastoise-g5.png';
 import moltres from '../assets/images/moltres-g5.png';
 import ivysaur from '../assets/images/ivysaur-g5.png';
 import meowth from '../assets/images/meowth-g5.png';
-import { Link } from 'react-router-dom';
 
 const Hero = () => {
 
@@ -165,7 +165,7 @@ const Hero = () => {
                     animate='visible'
                     transition={{ duration: 1 }}
                 >Browse a collection of pokemon</motion.p>
-                <Link to="/pokemon/pokedex">
+                <Link to="/pokedex">
                     <Button
                         className='btn'
                         whileHover={{ scale: 1.05 }}

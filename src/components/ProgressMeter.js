@@ -2,13 +2,13 @@
 
 const ProgressMeter = (props) => {
     const {
-        percent = 0,         // number: 0 - 1, inclusive. Fill %
-        width = 100,         // the width of our meter
-        height = 10,         // the height of our meter
-        rounded = true,      // if true, use rounded corners
-        color = "#FFCC00",   // the fill color
-        animate = true,     // if true, animate
-        label = null         // a label for accessibility
+        percent = 0,
+        width = 100,       
+        height = 10,       
+        rounded = true,    
+        color = "#FFCC00", 
+        animate = true,    
+        label = null         
     } = props;
 
     const r = rounded ? Math.ceil(height / 2) : 0;

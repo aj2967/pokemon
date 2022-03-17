@@ -4,8 +4,8 @@ import Meter from './ProgressMeter';
 import LoaderSmall from './LoaderSmall';
 
 const PokemonCard = ({ pokemon, bio, ability }) => {
-  console.log(pokemon);
-  console.log(ability);
+  // console.log(pokemon);
+  // console.log(ability);
   
   const [isLoaded, setIsLoaded] = useState(false)
  

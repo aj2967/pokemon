@@ -11,7 +11,7 @@ const Home = () => {
             return data.json()
         })
         .then(pokemon => {
-            console.log(pokemon)
+            // console.log(pokemon)
         })
     }, [])
 

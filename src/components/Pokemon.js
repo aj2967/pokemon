@@ -41,7 +41,7 @@ const Pokemon = () => {
         const res = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}`);
         const data = await res.json();
 
-        console.log(data);
+        // console.log(data);
         setBio(data);
   }
 
@@ -53,7 +53,7 @@ const Pokemon = () => {
       const res = await fetch(result)
       const data = await res.json();
 
-      console.log(ability)
+      // console.log(ability)
       setAbility(data)
     }
     createAbilityObject(data.abilities[0].ability.url)

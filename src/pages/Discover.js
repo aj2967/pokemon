@@ -22,8 +22,6 @@ const Discover = () => {
     const { url, type } = apiData;
     const idUrl = `${url}${type}/${id}`;
     const nameUrl = `${url}${type}/${inputValue}`;
-    
-    // const [newFetch, setNewFetch] = useState(idUrl);
 
     useEffect(() => {
     setLoaded(false);
@@ -46,7 +44,7 @@ const Discover = () => {
         const res = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}`);
         const data = await res.json();
 
-        console.log(data);
+        // console.log(data);
         setBio(data);
     }
 
@@ -58,7 +56,7 @@ const Discover = () => {
       const res = await fetch(result)
       const data = await res.json();
 
-      console.log(ability)
+    //   console.log(ability)
       setAbility(data)
     }
     createAbilityObject(data.abilities[0].ability.url)
@@ -67,7 +65,7 @@ const Discover = () => {
     const handleRandom = () => {
         const randomNum = Math.floor(Math.random() * 898);
         setId(randomNum);
-        console.log(randomNum);
+        // console.log(randomNum);
     }
 
     const handleSearch = (e, inputValue) => {
