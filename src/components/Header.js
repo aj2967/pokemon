@@ -5,11 +5,11 @@ const Header = () => {
   return (
     <div className="header">
       <div className="header-container">
-        <Link to="/pokemon/pokedex">Pokedex</Link>
+        <Link to="/pokedex">Pokedex</Link>
         <div>
-          <Link className='logo' to="/pokemon"><img src={pokemonTitle} alt="Pokemon" /></Link>
+          <Link className='logo' to="/"><img src={pokemonTitle} alt="Pokemon" /></Link>
         </div>
-        <Link className='link-discover' to="/pokemon/discover">Discover</Link>
+        <Link className='link-discover' to="/discover">Discover</Link>
       </div>
     </div>
   )

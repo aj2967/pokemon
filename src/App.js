@@ -13,10 +13,10 @@ function App() {
       <Header />
       <div className="body-container">
         <Routes>
-          <Route exact path='/pokemon' element={<Home />} />
-          <Route path='/pokemon/pokedex' element={<Pokedex />} />
-          <Route path='/pokemon/pokedex/:id' element={<Pokemon />} />
-          <Route path='/pokemon/discover' element={<Discover />} />
+          <Route exact path='/' element={<Home />} />
+          <Route path='/pokedex' element={<Pokedex />} />
+          <Route path='/pokedex/:id' element={<Pokemon />} />
+          <Route path='/discover' element={<Discover />} />
         </Routes>
       </div>
     </div>
