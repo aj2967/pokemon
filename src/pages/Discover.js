@@ -77,12 +77,11 @@ const Discover = () => {
         })
         .then(pokemon => {
             setPokemon(pokemon)
-            const name = pokemon.name;
+            const name = pokemon?.name;
             setId(pokemon.id)
             console.log(pokemon);
             handleSpecies(id);
             handleAbility();
-
         })
         
         setLoaded(true);
