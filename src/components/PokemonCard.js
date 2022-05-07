@@ -16,14 +16,14 @@ const PokemonCard = ({ pokemon, bio, ability }) => {
   }, [])
 
   const ImgContainer = styled.div`
-    background: linear-gradient(45deg, #e2e2e2, ${bio?.color.name});
+    background: linear-gradient(45deg, #e2e2e2, ${bio?.color?.name});
   `
 
   return (
     <div className='card'>
           <div className=" detail-bio">
             <ImgContainer className="img-container">
-              <img src={pokemon?.sprites?.other?.home.front_default} alt={pokemon.name} />
+              <img src={pokemon?.sprites?.other?.home.front_default} alt={pokemon?.name} />
             </ImgContainer>
 
             <div className="detail detail-stats">
@@ -59,7 +59,7 @@ const PokemonCard = ({ pokemon, bio, ability }) => {
             <h1>{pokemon?.name} <small>({pokemon?.types[0]?.type?.name})</small></h1>
             <div className='info-paragraph'>
               {
-                bio.flavor_text_entries.filter(entry => entry.language.name.includes('en') && entry.version.name.includes('red')).map((filteredEntry) => (
+                bio.flavor_text_entries.filter(entry => entry?.language?.name?.includes('en') && entry?.version?.name?.includes('red'))?.map((filteredEntry) => (
                 <blockquote>{filteredEntry?.flavor_text}</blockquote>
                 ))
               }           
@@ -88,11 +88,11 @@ const PokemonCard = ({ pokemon, bio, ability }) => {
               </div>
               <div>
                 <b>Color:</b>
-                <p>{bio?.color.name}</p>
+                <p>{bio?.color?.name}</p>
               </div>
               <div>
                 <b>Egg Group:</b>
-                <p>{bio?.egg_groups[0].name}</p>
+                <p>{bio?.egg_groups[0]?.name}</p>
               </div>
               <div>
                 <b>Evolves From:</b>
@@ -100,11 +100,11 @@ const PokemonCard = ({ pokemon, bio, ability }) => {
               </div>
               <div>
                 <b>Generation:</b>
-                <p>{bio?.generation.name}</p>
+                <p>{bio?.generation?.name}</p>
               </div>
               <div>
                 <b>Growth Rate:</b>
-                <p>{bio?.growth_rate.name}</p>
+                <p>{bio?.growth_rate?.name}</p>
               </div>
               <div>
                 <b>Habitat:</b>
@@ -126,7 +126,7 @@ const PokemonCard = ({ pokemon, bio, ability }) => {
                     !isLoaded ? (
                       <LoaderSmall />
                     ) : (
-                    ability?.effect_entries?.filter(entry => entry.language.name.includes('en')).map((filteredEntry) => (
+                    ability?.effect_entries?.filter(entry => entry?.language?.name?.includes('en'))?.map((filteredEntry) => (
                      filteredEntry?.effect
                       ))
                     )
@@ -138,8 +138,8 @@ const PokemonCard = ({ pokemon, bio, ability }) => {
           <div className="detail detail-sprites">
             <h3>Shiny Version</h3>
             <div className='sprites'>
-              <img src={pokemon?.sprites?.other.home.front_shiny} alt={pokemon.name} />
-              <img src={pokemon?.sprites?.front_shiny} alt={pokemon.name} />
+              <img src={pokemon?.sprites?.other.home.front_shiny} alt={pokemon?.name} />
+              <img src={pokemon?.sprites?.front_shiny} alt={pokemon?.name} />
             </div>
           </div>
         </div>
